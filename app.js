@@ -14,7 +14,7 @@ const userRouter=require('./routes/userRoutes');
 const reviewRouter=require('./routes/reviewRoutes');
 const viewRouter=require('./routes/viewRoutes');
 const bookingRouter=require('./routes/bookingRoutes');
-
+const compression=require('compression');
 const cookieParser=require('cookie-parser');
 
 
@@ -109,6 +109,7 @@ app.use(hpp({
     ]
 }))
 
+app.use(compression())
 
 //test middleware
 app.use((req,res,next)=>{
