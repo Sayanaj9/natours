@@ -9,9 +9,9 @@ const loginForm = document.querySelector('.form--login');
 const logOutClass = document.querySelector('.nav__el--logout');
 const userData = document.querySelector('.form-user-data');
 const userPasswordform = document.querySelector('.form-user-password');
-const bookBtn = document.querySelector('book-tour');
+// const bookBtn = document.querySelector('book-tour');
+const bookBtn = document.querySelector('button');
 
-console.log("bookt",bookBtn);
 const locations=[
     {
       "_id": "5c88fa8cf4afda39709c2954",
@@ -64,8 +64,7 @@ if(userData) {
   const form=new FormData();
   form.append('email',document.getElementById('email').value);
   form.append('name',document.getElementById('name').value);
-  form.append('photo',document.getElementById('photo').files[0]);
-  console.log(form);
+  form.append('photo',document.getElementById('here').files[0]);
 
   // const email=document.getElementById('email').value;
   // const name=document.getElementById('name').value;
@@ -95,7 +94,6 @@ if(bookBtn)
   bookBtn.addEventListener('click',e=>{
     e.target.textContent='processing..';
     const {tourId}=e.target.dataset;
-    console.log(tourId);
     bookTour(tourId)
   })
 }

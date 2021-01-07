@@ -6,8 +6,9 @@ const {getOverview,getTour,getLoginForm,getAccount,updateUserData,getMyTours}=re
 const Router=express.Router();
 
 Router.get('/me',protect,getAccount);
-Router.get('/my-tours',createBookingCheckout,protect,getMyTours);
-  
+// Router.get('/my-tours',createBookingCheckout,protect,getMyTours);
+Router.get('/my-tours',protect,getMyTours);
+ 
 Router.get('/login',isLoggedIn,getLoginForm);
 Router.get('/',createBookingCheckout,isLoggedIn,getOverview)
 Router.get('/tour/:name',isLoggedIn,getTour);

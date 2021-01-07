@@ -1,6 +1,8 @@
 const express=require('express');
 const path=require('path');
 const helmet=require('helmet');
+const cors=require('cors');
+
 const hpp=require('hpp');
 const mongoSanitize=require('express-mongo-sanitize');
 const xss=require('xss-clean');
@@ -98,6 +100,11 @@ app.use(cookieParser()); //parses coookies
 
 //data sanitization against Nosql query injection
 app.use(mongoSanitize())
+
+//CORS
+app.use(cors());
+
+app.options('*',cors())
 
 //data sanitization against XSS
 app.use(xss())
