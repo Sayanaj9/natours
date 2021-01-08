@@ -76,7 +76,6 @@ exports.deleteMe=catchAsync(async(req,res,next)=>{
 
 
 exports.updateMe=catchAsync(async(req,res,next)=>{
-    console.log(req.file);
     //1)create err if user posts with password & passwordConfirm
     if(req.body.password||req.body.passwordConfirm)
     {

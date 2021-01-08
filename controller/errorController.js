@@ -1,6 +1,5 @@
 const AppError=require('./../utils/appError');
 const handleCastErrorDb=(err)=>{
-    // console.log("err------------",err);
      const message=`Invalid ${err.path}:${err.value}`;
      return new AppError(message,400);
 }
@@ -102,7 +101,6 @@ module.exports=(err,req,res,next)=>{
        let error={...err};
        error.name = err.name;
        error.message=err.message;
-console.log(error);
        if(error.name==='CastError')
        {
             error=handleCastErrorDb(error);
